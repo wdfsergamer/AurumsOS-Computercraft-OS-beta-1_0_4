@@ -1,0 +1,3 @@
+/x32/boot.lua /AurumOS/boot.lua
+/x32/system/activation.lua /AurumOS/system/activation.lua
+/x32/Programs/turtle_client.lua /AurumOS/Programs/turtle_client.lua

@@ -1,0 +1,3 @@
+title=CC Shell
+icon=C
+target=builtin:ccshell
