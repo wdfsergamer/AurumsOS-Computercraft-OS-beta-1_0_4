@@ -2,6 +2,11 @@
 -- Type 'GOSDOOM' in terminal to launch
 
 local W, H = term.getSize()
+if W < 30 or H < 15 then
+    print("Error: Terminal too small (need at least 30x15)")
+    return
+end
+
 local running = true
 local player = {
     x = math.floor(W / 2),
@@ -43,7 +48,8 @@ local function drawFrame()
     
     -- Draw stats
     term.setCursorPos(1, H)
-    term.write("HP:" .. player.health .. " AMMO:" .. player.ammo .. " SCORE:" .. score)
+    local statsText = "HP:" .. player.health .. " AMMO:" .. player.ammo .. " SCORE:" .. score
+    term.write(statsText:sub(1, W))
     
     -- Draw player
     term.setCursorPos(player.x, player.y)
@@ -132,8 +138,6 @@ end
 
 term.clear()
 spawnEnemies(3 + level)
-
-local timer = os.startTimer(0.1)
 
 while running do
     drawFrame()
